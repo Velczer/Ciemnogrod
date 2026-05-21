@@ -221,8 +221,8 @@ export function BracketSection() {
             }}>
               {/* Top half connector */}
               <Box sx={{
-                position: 'absolute', top: '18%', left: '-135px', right: 0,
-                height: '34.5%',
+                position: 'absolute', top: '19.5%', left: '-135px', right: 0,
+                height: '34%',
                 borderTop: '1px solid rgba(201,168,76,0.3)',
                 borderRight: '1px solid rgba(201,168,76,0.3)',
                 borderBottom: '1px solid rgba(201,168,76,0.3)',
@@ -266,7 +266,7 @@ export function BracketSection() {
             }}>
               <Box sx={{
                 position: 'absolute', top: '36%', left: '-129px', right: 0,
-                height: '34%',
+                height: '33%',
                 borderTop: '1px solid rgba(201,168,76,0.3)',
                 borderRight: '1px solid rgba(201,168,76,0.3)',
                 borderBottom: '1px solid rgba(201,168,76,0.3)',
