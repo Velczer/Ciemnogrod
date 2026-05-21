@@ -112,6 +112,28 @@ export function Navbar() {
                   color: '#C9A84C', textTransform: 'uppercase',
                 }}>Sezon I</Typography>
               </Box>
+
+              {/* <Box
+                sx={{
+                  px: 2, py: 0.6,
+                  border: '1px solid rgba(201,168,76,0.35)',
+                  borderRadius: '2px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  ml: 2,
+                  '&:hover': {
+                    background: 'rgba(201,168,76,0.1)',
+                    boxShadow: '0 0 12px rgba(201,168,76,0.2)',
+                  },
+                }}
+                onClick={() => window.location.href = '/login'}
+              >
+                <Typography sx={{
+                  fontFamily: '"Cinzel", serif',
+                  fontSize: '0.75rem', letterSpacing: '0.12em',
+                  color: '#C9A84C', textTransform: 'uppercase',
+                }}>Zaloguj</Typography>
+              </Box> */}
             </Box>
 
             {/* Mobile menu button */}
@@ -163,6 +185,27 @@ export function Navbar() {
             >{link.label}</ListItem>
           ))}
         </List>
+        <Box
+            sx={{
+              px: 2, py: 0.6,
+              border: '1px solid rgba(201,168,76,0.35)',
+              borderRadius: '2px',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              ml: 2,
+              '&:hover': {
+                background: 'rgba(201,168,76,0.1)',
+                boxShadow: '0 0 12px rgba(201,168,76,0.2)',
+              },
+            }}
+            onClick={() => window.location.href = '/login'}
+          >
+            <Typography sx={{
+              fontFamily: '"Cinzel", serif',
+              fontSize: '0.75rem', letterSpacing: '0.12em',
+              color: '#C9A84C', textTransform: 'uppercase',
+            }}>Zaloguj</Typography>
+          </Box>
       </Drawer>
     </>
   )

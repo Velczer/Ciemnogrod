@@ -99,3 +99,22 @@ export const rankedPlayers: Player[] = players
       rank: index + 1,
     }));
     
+
+// import { getDatabase } from '@netlify/database';
+
+// const db = new NetlifyDatabase();
+
+// export default async (req, res) => {
+//   if (req.method === 'GET') {
+//     // Pobierz wszystkich graczy
+//     const players = await db.query('players').findMany();
+//     res.status(200).json(players);
+//   } else if (req.method === 'POST') {
+//     // Dodaj nowego gracza
+//     const newPlayer = req.body;
+//     const created = await db.query('players').create(newPlayer);
+//     res.status(201).json(created);
+//   } else {
+//     res.status(405).json({ error: 'Method not allowed' });
+//   }
+// };
