@@ -52,6 +52,9 @@ function PlayerCard({ player }: { player: typeof players[0] }) {
             background: faction.primary,
             color: '#080C14',
           },
+          '& .rank-badge-text': {
+            color: '#fff',
+          },
         },
       }}
     >
@@ -67,7 +70,7 @@ function PlayerCard({ player }: { player: typeof players[0] }) {
           transition: 'all 0.4s ease',
         }}
       >
-        <Typography sx={{
+        <Typography className="rank-badge-text" sx={{
           fontFamily: '"Cinzel", serif', fontSize: '0.65rem',
           color: '#C9A84C', fontWeight: 700,
         }}>#{player.rank}</Typography>
