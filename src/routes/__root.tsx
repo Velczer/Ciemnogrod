@@ -76,9 +76,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Chronicle of Heroes — Olden Era Tournament' },
+      { title: 'Kroniki Ciemnogrodu' },
       { name: 'theme-color', content: '#080C14' },
-      { name: 'description', content: 'The premier fantasy strategy esports tournament. Battle for dominion in the Olden Era.' },
+      { name: 'description', content: 'Bitwa o dominację w Olden Erze.' },
     ],
     links: [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
