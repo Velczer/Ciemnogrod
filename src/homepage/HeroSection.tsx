@@ -1,5 +1,4 @@
 import { Box, Typography, Button, Container } from '@mui/material'
-import { SxProps, Theme } from '@mui/material/styles'
 
 const particlePositions = [
   { left: '10%', top: '20%', delay: '0s', duration: '6s' },
@@ -41,6 +40,18 @@ export function HeroSection() {
           radial-gradient(ellipse 50% 50% at 20% 80%, rgba(123,79,166,0.1) 0%, transparent 50%),
           linear-gradient(180deg, #060A12 0%, #080C14 40%, #0A1020 100%)
         `,
+      '&::before': {
+          content: '""', position: 'absolute',
+          left: 0,
+          right: 0, top: 0, bottom: 0,
+          width: '100%', height: '100%',
+          background: '#050505',
+          backgroundImage: 'url(/logo.png)',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+          opacity: 0.4
+        },
       }}
     >
       {/* Grid overlay */}
@@ -95,7 +106,9 @@ export function HeroSection() {
         boxShadow: '0 0 20px rgba(201,168,76,0.4)',
       }} />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, textAlign: 'center', py: 12 }}>
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, textAlign: 'center', py: 12,
+       }}>
+
         {/* Pre-title badge */}
         <Box sx={{
           display: 'inline-flex', alignItems: 'center', gap: 1.5,
@@ -179,7 +192,7 @@ export function HeroSection() {
             animation: 'floatUp 0.9s 0.4s ease forwards', opacity: 0, animationFillMode: 'forwards',
           }}
         >
-          Heroes Olden Era · Season I · Grand Tournament
+          Heroes Olden Era · Sezon I · Grand Tournament
         </Typography>
 
         <Typography
@@ -199,7 +212,7 @@ export function HeroSection() {
         </Typography>
 
         {/* CTA Buttons */}
-        <Box sx={{
+        {/* <Box sx={{
           display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap',
           animation: 'floatUp 0.9s 0.65s ease forwards', opacity: 0, animationFillMode: 'forwards',
         }}>
@@ -253,12 +266,12 @@ export function HeroSection() {
           >
             Zobacz drabinkę
           </Button>
-        </Box>
+        </Box> */}
 
         {/* Stats row */}
         <Box sx={{
           display: 'flex', gap: { xs: 3, md: 6 }, justifyContent: 'center',
-          mt: 10, flexWrap: 'wrap',
+          mt: 17, flexWrap: 'wrap',
           animation: 'floatUp 0.9s 0.8s ease forwards', opacity: 0, animationFillMode: 'forwards',
         }}>
           {[
@@ -278,7 +291,7 @@ export function HeroSection() {
               <Typography sx={{
                 fontFamily: '"Cinzel", serif',
                 fontSize: '0.75rem', letterSpacing: '0.15em',
-                color: '#6B5E4E', textTransform: 'uppercase', mt: 0.5,
+                color: '#6B5E4E', textTransform: 'uppercase', mt: 1,
               }}>{stat.label}</Typography>
             </Box>
           ))}

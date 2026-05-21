@@ -148,7 +148,7 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'stylesheet', href: '/styles.css' },
-      { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'icon', href: '/favicon.png' },
     ],
   }),
   component: RootComponent,

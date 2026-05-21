@@ -163,6 +163,8 @@ export function BracketSection() {
           p: { xs: 3, md: 5 },
           position: 'relative',
           overflow: 'auto',
+          maxWidth: '1000px',
+          margin: '0 auto',
           '&::before': {
             content: '""', position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
             background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent)',
@@ -202,7 +204,7 @@ export function BracketSection() {
             {/* Quarterfinals */}
             <Box sx={{
               display: 'flex', flexDirection: 'column',
-              gap: 3, flex: 1,
+              gap: 5, flex: 1,
             }}>
               {quarterFinals.matches.map((match) => (
                 <MatchCard key={match.id} match={match} />
@@ -219,8 +221,8 @@ export function BracketSection() {
             }}>
               {/* Top half connector */}
               <Box sx={{
-                position: 'absolute', top: '6%', left: 0, right: 0,
-                height: '40%',
+                position: 'absolute', top: '18%', left: '-135px', right: 0,
+                height: '34.5%',
                 borderTop: '1px solid rgba(201,168,76,0.3)',
                 borderRight: '1px solid rgba(201,168,76,0.3)',
                 borderBottom: '1px solid rgba(201,168,76,0.3)',
@@ -246,8 +248,8 @@ export function BracketSection() {
             <Box sx={{
               display: 'flex', flexDirection: 'column',
               justifyContent: 'space-around',
-              alignSelf: 'stretch',
-              gap: 7, flex: 1, py: '2%',
+              alignSelf: 'center',
+              gap: 5, flex: 1, py: '6%',
             }}>
               {semiFinals.matches.map((match) => (
                 <MatchCard key={match.id} match={match} />
@@ -263,8 +265,8 @@ export function BracketSection() {
               left: '-5px',
             }}>
               <Box sx={{
-                position: 'absolute', top: '24%', left: 0, right: 0,
-                height: '50%',
+                position: 'absolute', top: '36%', left: '-129px', right: 0,
+                height: '34%',
                 borderTop: '1px solid rgba(201,168,76,0.3)',
                 borderRight: '1px solid rgba(201,168,76,0.3)',
                 borderBottom: '1px solid rgba(201,168,76,0.3)',
@@ -284,6 +286,7 @@ export function BracketSection() {
                 fontFamily: '"Cinzel", serif',
                 fontSize: '0.55rem', letterSpacing: '0.15em',
                 color: '#C9A84C',
+                mt: 5
               }}>
                 ✦ FINAŁ ✦
               </Box>

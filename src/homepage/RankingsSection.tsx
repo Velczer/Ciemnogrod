@@ -2,14 +2,14 @@ import {
   Box, Typography, Container,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
 } from '@mui/material'
-import { players } from '../data/gameData'
+import { rankedPlayers } from '../data/players'
 import * as Styled from './GlobalStyles.styled'
 import { Divider } from '../components/Divider'
 
-const rankIcons: Record<number, { icon: string; color: string; label: string }> = {
-  1: { icon: '👑', color: '#FFD700', label: 'Wielki Archon' },
-  2: { icon: '⚔', color: '#C0C0C0', label: 'Wódz Wojenny' },
-  3: { icon: '✦', color: '#CD7F32', label: 'Mistrz Bitewnej Magii' },
+const rankIcons: Record<number, { color: string; label: string }> = {
+  1: { color: '#FFD700', label: 'Wielki Archon' },
+  2: { color: '#C0C0C0', label: 'Wódz Wojenny' },
+  3: { color: '#CD7F32', label: 'Mistrz Bitewnej Magii' },
 }
 
 function getRankStyle(rank: number) {
@@ -19,12 +19,8 @@ function getRankStyle(rank: number) {
   return { bg: 'transparent', border: 'rgba(201,168,76,0.06)' }
 }
 
-function getWinRate(wins: number, losses: number) {
-  return ((wins / (wins + losses)) * 100).toFixed(1)
-}
-
 export function RankingsSection() {
-  const sorted = [...players].sort((a, b) => b.points - a.points)
+  const sortedPlayers = [...rankedPlayers].sort((a, b) => b.points - a.points);
 
   return (
     <Box
@@ -119,11 +115,10 @@ export function RankingsSection() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {sorted.map((player, idx) => {
+                {sortedPlayers.map((player, idx) => {
                   const rank = idx + 1
                   const style = getRankStyle(rank)
-                  const winRate = getWinRate(player.wins, player.losses)
-                  const winRateNum = parseFloat(winRate)
+                  const winRateNum = parseFloat(player.winRate)
                   const ri = rankIcons[rank]
 
                   return (
@@ -241,7 +236,7 @@ export function RankingsSection() {
                             fontSize: '0.8rem',
                             color: winRateNum >= 75 ? '#27AE60' : winRateNum >= 60 ? '#C9A84C' : '#C0392B',
                             minWidth: 45,
-                          }}>{winRate}%</Typography>
+                          }}>{player.winRate}%</Typography>
                         </Box>
                       </TableCell>
 

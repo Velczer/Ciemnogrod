@@ -1,15 +1,12 @@
 import { Box, Typography, Container, Grid } from '@mui/material'
-import { players, factions } from '../data/gameData'
+import { factions } from '../data/gameData'
+import { rankedPlayers } from '../data/players'
 import * as Styled from './GlobalStyles.styled'
 import { Divider } from '../components/Divider'
 
-function getWinRate(wins: number, losses: number) {
-  return ((wins / (wins + losses)) * 100).toFixed(1)
-}
-
-function PlayerCard({ player }: { player: typeof players[0] }) {
-  const faction = factions[player.faction] ?? factionColors.Temple
-  const winRate = parseFloat(getWinRate(player.wins, player.losses))
+function PlayerCard({ player }: { player: typeof rankedPlayers[0] }) {
+  const faction = factions[player.faction] ?? factions.Temple
+  const winRate = player?.winRate
 
   return (
     <Box
@@ -59,6 +56,16 @@ function PlayerCard({ player }: { player: typeof players[0] }) {
       }}
     >
       {/* Rank badge */}
+      <Box 
+      sx={{
+        backgroundImage: `url(/OE_${player.faction}_screen.webp)`,
+        backgroundSize: 'cover',
+        position: 'absolute', top: 0, left: 0, right: 0, height: '100%',
+        opacity: 0.2,
+        transition: 'transform 0.4s ease',
+      }}>
+
+      </Box>
       <Box
         className="rank-badge"
         sx={{
@@ -230,7 +237,7 @@ export function PlayersSection() {
         </Box>
 
         <Grid container spacing={3}>
-          {players.map((player) => (
+          {rankedPlayers.map((player) => (
             <Grid key={player.id} size={{ xs: 12, sm: 6, lg: 4 }}>
               <PlayerCard player={player} />
             </Grid>

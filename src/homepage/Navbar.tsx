@@ -46,7 +46,8 @@ export function Navbar() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 boxShadow: '0 0 10px rgba(201,168,76,0.2)',
               }}>
-                <Typography sx={{ fontSize: '1rem', lineHeight: 1, color: '#C9A84C' }}>⚔</Typography>
+                {/* <Typography sx={{ fontSize: '1rem', lineHeight: 1, color: '#C9A84C' }}>⚔</Typography> */}
+                <img src="/favicon.png" alt="Logo" />
               </Box>
               <Box>
                 <Typography sx={{
