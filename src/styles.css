@@ -1,0 +1,111 @@
+@import "tailwindcss" source("../");
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dark: #8B6914;
+  --gold-dim: rgba(201, 168, 76, 0.15);
+  --purple: #7B4FA6;
+  --bg-void: #080C14;
+  --bg-dark: #0D1525;
+  --bg-mid: #111B2E;
+  --bg-surface: #162035;
+  --text-parchment: #E8DCC8;
+  --text-stone: #9B8E7A;
+  --border-gold: rgba(201, 168, 76, 0.25);
+  --glow-gold: rgba(201, 168, 76, 0.4);
+  --glow-purple: rgba(123, 79, 166, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-void);
+  color: var(--text-parchment);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* Decorative divider */
+.rune-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+}
+.rune-divider::before,
+.rune-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Gold glow text */
+.glow-text {
+  text-shadow:
+    0 0 20px rgba(201, 168, 76, 0.6),
+    0 0 40px rgba(201, 168, 76, 0.3),
+    0 0 60px rgba(201, 168, 76, 0.15);
+}
+
+/* Animated border glow */
+@keyframes borderPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(201, 168, 76, 0.2), inset 0 0 10px rgba(201, 168, 76, 0.05); }
+  50% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.4), inset 0 0 20px rgba(201, 168, 76, 0.1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-40px) translateX(10px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-80px) translateX(-5px) scale(0.8); opacity: 0; }
+}
+
+.animate-float-up {
+  animation: floatUp 0.8s ease forwards;
+}
+
+/* Parchment texture overlay */
+.parchment-texture {
+  position: relative;
+}
+.parchment-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
