@@ -78,6 +78,8 @@ function calculatePoints(wins: number, losses: number) {
 
   const winRateBonus = Math.round(winRate * 100);
 
+  if (basePoints < 0) return 0;
+
   return basePoints + winRateBonus;
 };
 
