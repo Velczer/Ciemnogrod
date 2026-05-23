@@ -73,15 +73,31 @@ export const bracket: BracketRound[] = [
   {
     name: 'Półfinały',
     matches: [
-      { id: 'sf1', player1: 'Damianejro', player2: 'Arcio', status: 'live' },
-      { id: 'sf2', player1: 'FIFI', player2: 'Velczer', status: 'upcoming' },
+      {
+        id: 'sf1',
+        player1: 'Damianejro',
+        player2: 'Arcio',
+        score1: 0,
+        score2: 2,
+        winner: 'Arcio',
+        status: 'completed',
+      },
+      {
+        id: 'sf2',
+        player1: 'FIFI',
+        player2: 'Velczer',
+        score1: 2,
+        score2: 0,
+        winner: 'FIFI',
+        status: 'completed',
+      },
       // { id: 'sf3', player1: 'TBD', player2: 'TBD', status: 'upcoming' },
     ],
   },
   {
     name: 'Finał',
     matches: [
-      { id: 'gf1', player1: 'TBD', player2: 'Stigma', status: 'upcoming' },
+      { id: 'gf1', player1: 'Arcio', player2: 'Stigma', status: 'live' },
     ],
   },
 ];
