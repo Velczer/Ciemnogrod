@@ -26,6 +26,13 @@ const config = defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    host: true,
+    allowedHosts: true,
+  },
+  preview: {
+    allowedHosts: true,
+  },
 });
 
 export default config;
