@@ -20,17 +20,11 @@ function LandingPage() {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const res = await fetch(
-          import.meta.env.VITE_API_URL +
-            ':' +
-            import.meta.env.VITE_API_PORT +
-            '/api/players',
-          {
-            headers: {
-              'x-api-key': import.meta.env.VITE_API_KEY,
-            },
-          }
-        );
+        const res = await fetch(import.meta.env.VITE_API_URL + '/api/players', {
+          headers: {
+            'x-api-key': import.meta.env.VITE_API_KEY,
+          },
+        });
         const data = await res.json();
         setPlayers(data);
       } finally {
