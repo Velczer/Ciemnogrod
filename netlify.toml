@@ -3,5 +3,5 @@
   publish = "dist/client"
 [dev]
   command = "npm run dev"
-  targetPort = 3000
+  targetPort = 8889
   port = 8888

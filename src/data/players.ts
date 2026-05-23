@@ -15,7 +15,7 @@ const players: Player[] = [
     id: 1,
     nickname: 'Velczer',
     wins: 0,
-    losses: 0,
+    losses: 1,
     faction: 'Hive',
     emblem: 'V',
     points: 0,
@@ -23,7 +23,7 @@ const players: Player[] = [
   {
     id: 2,
     nickname: 'FIFI',
-    wins: 1,
+    wins: 2,
     losses: 0,
     faction: 'Necropolis',
     emblem: 'F',
@@ -41,7 +41,7 @@ const players: Player[] = [
   {
     id: 4,
     nickname: 'STIGMA',
-    wins: 0,
+    wins: 1,
     losses: 0,
     faction: 'Temple',
     emblem: 'S',
@@ -60,7 +60,7 @@ const players: Player[] = [
     id: 6,
     nickname: 'Damianejro',
     wins: 0,
-    losses: 0,
+    losses: 1,
     faction: 'Hive',
     emblem: 'D',
     points: 0,
@@ -98,23 +98,3 @@ export const rankedPlayers: Player[] = players
       ...player,
       rank: index + 1,
     }));
-    
-
-// import { getDatabase } from '@netlify/database';
-
-// const db = new NetlifyDatabase();
-
-// export default async (req, res) => {
-//   if (req.method === 'GET') {
-//     // Pobierz wszystkich graczy
-//     const players = await db.query('players').findMany();
-//     res.status(200).json(players);
-//   } else if (req.method === 'POST') {
-//     // Dodaj nowego gracza
-//     const newPlayer = req.body;
-//     const created = await db.query('players').create(newPlayer);
-//     res.status(201).json(created);
-//   } else {
-//     res.status(405).json({ error: 'Method not allowed' });
-//   }
-// };

@@ -1,6 +1,6 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
-import '../styles.css'
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import '../styles.css';
 
 const fantasyTheme = createTheme({
   palette: {
@@ -28,11 +28,20 @@ const fantasyTheme = createTheme({
   },
   typography: {
     fontFamily: '"Cinzel", "Georgia", serif',
-    h1: { fontFamily: '"Cinzel Decorative", "Cinzel", serif', letterSpacing: '0.05em' },
-    h2: { fontFamily: '"Cinzel Decorative", "Cinzel", serif', letterSpacing: '0.04em' },
+    h1: {
+      fontFamily: '"Cinzel Decorative", "Cinzel", serif',
+      letterSpacing: '0.05em',
+    },
+    h2: {
+      fontFamily: '"Cinzel Decorative", "Cinzel", serif',
+      letterSpacing: '0.04em',
+    },
     h3: { fontFamily: '"Cinzel", serif', letterSpacing: '0.03em' },
     h4: { fontFamily: '"Cinzel", serif', letterSpacing: '0.02em' },
-    body1: { fontFamily: '"Crimson Text", "Georgia", serif', fontSize: '1.05rem' },
+    body1: {
+      fontFamily: '"Crimson Text", "Georgia", serif',
+      fontSize: '1.05rem',
+    },
     body2: { fontFamily: '"Crimson Text", "Georgia", serif' },
     button: { fontFamily: '"Cinzel", serif', letterSpacing: '0.1em' },
   },
@@ -69,7 +78,7 @@ const fantasyTheme = createTheme({
       },
     },
   },
-})
+});
 
 export const Route = createRootRoute({
   head: () => ({
@@ -82,7 +91,11 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossOrigin: 'anonymous',
+      },
       { rel: 'icon', href: '/favicon.png' },
       {
         rel: 'stylesheet',
@@ -90,8 +103,14 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  notFoundComponent: () => (
+    <div style={{ padding: 40, color: 'white' }}>
+      <h1>404</h1>
+      <p>Ta strona nie istnieje</p>
+    </div>
+  ),
   shellComponent: RootDocument,
-})
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -107,5 +126,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
