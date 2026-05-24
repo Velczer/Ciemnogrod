@@ -1,232 +1,78 @@
-import {
-  Box,
-  Typography,
-  Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material';
-import * as Styled from '@components/GlobalStyles.styled';
+import { Table, TableBody, TableContainer, TableHead } from '@mui/material';
+import * as GlobalStyled from '@components/GlobalStyles.styled';
 import { Divider } from '@components/Divider';
-import { PlayerRow, rankIcons } from './PlayerRow';
+import { PlayerRow } from './PlayerRow';
 import { Player } from '@/types/player';
+import * as Styled from './RankingSection.styled';
 
-export function RankingSection({
-  players,
-  loading,
-}: {
-  players: Player[];
-  loading: boolean;
-}) {
+const columns = [
+  'Rank',
+  'Czempion',
+  'Wygrane',
+  'Przegrane',
+  'Wskaźnik Wygranych',
+  'Punkty',
+];
+
+export function RankingSection({ players }: { players: Player[] }) {
   return (
-    <Box
-      component="section"
-      id="rankings"
-      sx={{
-        py: { xs: 8, md: 12 },
-        position: 'relative',
-        background:
-          'linear-gradient(180deg, #080C14 0%, #0C1422 50%, #080C14 100%)',
-      }}
-    >
-      {/* Decorative columns */}
-      <Box
-        sx={{
-          position: 'absolute',
-          left: 0,
-          top: '20%',
-          bottom: '20%',
-          width: '3px',
-          background:
-            'linear-gradient(180deg, transparent, rgba(201,168,76,0.3), transparent)',
-          pointerEvents: 'none',
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          right: 0,
-          top: '20%',
-          bottom: '20%',
-          width: '3px',
-          background:
-            'linear-gradient(180deg, transparent, rgba(201,168,76,0.3), transparent)',
-          pointerEvents: 'none',
-        }}
-      />
+    <Styled.Section id="rankings">
+      <Styled.SideAccent side="left" />
+      <Styled.SideAccent side="right" />
 
-      <Container maxWidth="lg" sx={{ position: 'relative' }}>
-        {/* Section header */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Styled.SectionMiniHeader>✦ Sala Chwały ✦</Styled.SectionMiniHeader>
-          <Styled.SectionHeader variant="h2">Ranking</Styled.SectionHeader>
+      <Styled.Content maxWidth="lg">
+        <Styled.Header>
+          <GlobalStyled.SectionMiniHeader>
+            ✦ Sala Chwały ✦
+          </GlobalStyled.SectionMiniHeader>
+
+          <GlobalStyled.SectionHeader variant="h2">
+            Ranking
+          </GlobalStyled.SectionHeader>
+
           <Divider />
-          <Styled.SectionSubtitle>
-            Wieczny kodeks zapisuje każdą bitwę. Chwała trwa wiecznie.
-          </Styled.SectionSubtitle>
-        </Box>
 
-        {/* Table container */}
-        <Box
-          sx={{
-            position: 'relative',
-            background: 'linear-gradient(145deg, #0F1A2E 0%, #0D1525 100%)',
-            border: '1px solid rgba(201,168,76,0.2)',
-            borderRadius: '4px',
-            overflow: 'hidden',
-            boxShadow:
-              '0 0 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(0,0,0,0.3)',
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '2px',
-              background:
-                'linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)',
-            },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: '2px',
-              background:
-                'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)',
-            },
-          }}
-        >
-          {/* Corner ornaments */}
-          {[
-            {
-              top: 0,
-              left: 0,
-              borderTop: '2px solid #C9A84C',
-              borderLeft: '2px solid #C9A84C',
-            },
-            {
-              top: 0,
-              right: 0,
-              borderTop: '2px solid #C9A84C',
-              borderRight: '2px solid #C9A84C',
-            },
-            {
-              bottom: 0,
-              left: 0,
-              borderBottom: '2px solid #C9A84C',
-              borderLeft: '2px solid #C9A84C',
-            },
-            {
-              bottom: 0,
-              right: 0,
-              borderBottom: '2px solid #C9A84C',
-              borderRight: '2px solid #C9A84C',
-            },
-          ].map((corner, i) => (
-            <Box
-              key={i}
-              sx={{
-                position: 'absolute',
-                ...corner,
-                width: 20,
-                height: 20,
-                zIndex: 1,
-              }}
-            />
-          ))}
+          <GlobalStyled.SectionSubtitle>
+            Wieczny kodeks zapisuje każdą bitwę. Chwała trwa wiecznie.
+          </GlobalStyled.SectionSubtitle>
+        </Styled.Header>
+
+        <Styled.TableFrame>
+          <Styled.Corner cornerPosition="top-left" />
+          <Styled.Corner cornerPosition="top-right" />
+          <Styled.Corner cornerPosition="bottom-left" />
+          <Styled.Corner cornerPosition="bottom-right" />
 
           <TableContainer>
             <Table>
               <TableHead>
-                <TableRow
-                  sx={{
-                    background:
-                      'linear-gradient(90deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.04) 100%)',
-                  }}
-                >
-                  {[
-                    'Rank',
-                    'Czempion',
-                    'Wygrane',
-                    'Przegrane',
-                    'Wskaźnik Wygranych',
-                    'Punkty',
-                  ].map((col) => (
-                    <TableCell
-                      key={col}
-                      sx={{
-                        fontFamily: '"Cinzel", serif',
-                        fontSize: '0.65rem',
-                        letterSpacing: '0.12em',
-                        color: '#C9A84C',
-                        textTransform: 'uppercase',
-                        py: 2.5,
-                        borderBottom: '1px solid rgba(201,168,76,0.2)',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {col}
-                    </TableCell>
+                <Styled.HeadRow>
+                  {columns.map((col) => (
+                    <Styled.HeadCell key={col}>{col}</Styled.HeadCell>
                   ))}
-                </TableRow>
+                </Styled.HeadRow>
               </TableHead>
-              <TableBody>
-                {players.map((player, idx) => {
-                  const rank = idx + 1;
 
-                  return (
-                    <PlayerRow key={player.id} player={player} rank={rank} />
-                  );
-                })}
+              <TableBody>
+                {players.map((player, idx) => (
+                  <PlayerRow key={player.id} player={player} rank={idx + 1} />
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
-        </Box>
+        </Styled.TableFrame>
 
-        {/* Legend */}
-        <Box
-          sx={{
-            display: 'flex',
-            gap: 3,
-            mt: 3,
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          {Object.entries(rankIcons).map(([rank, data]) => (
-            <Box
-              key={rank}
-              sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-            >
-              <Box
-                sx={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: '1px',
-                  background: data.color,
-                  boxShadow: `0 0 6px ${data.color}`,
-                }}
-              />
-              <Typography
-                sx={{
-                  fontFamily: '"Cinzel", serif',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.1em',
-                  color: '#7B6E5E',
-                  textTransform: 'uppercase',
-                }}
-              >
+        <Styled.Legend>
+          {Object.entries(Styled.rankIcons).map(([rank, data]) => (
+            <Styled.LegendItem key={rank}>
+              <Styled.LegendDot colorValue={data.color} />
+              <Styled.LegendText>
                 Rank {rank} — {data.label}
-              </Typography>
-            </Box>
+              </Styled.LegendText>
+            </Styled.LegendItem>
           ))}
-        </Box>
-      </Container>
-    </Box>
+        </Styled.Legend>
+      </Styled.Content>
+    </Styled.Section>
   );
 }

@@ -27,7 +27,8 @@
       "@pages/*": ["src/pages/*"],
       "@data/*": ["src/data/*"],
       "@types/*": ["src/types/*"],
-      "@helpers/*": ["src/helpers/*"]
+      "@helpers/*": ["src/helpers/*"],
+      "@consts/*": ["src/consts/*"]
     }
   }
 }
