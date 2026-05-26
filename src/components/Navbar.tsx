@@ -145,6 +145,7 @@ export function Navbar() {
               ))}
 
               <Box
+                onClick={() => handleNavClick('#match-history')}
                 sx={{
                   px: 2,
                   py: 0.6,
@@ -255,7 +256,7 @@ export function Navbar() {
             </ListItem>
           ))}
         </List>
-        <Box
+        {/* <Box
           sx={{
             px: 2,
             py: 0.6,
@@ -282,7 +283,7 @@ export function Navbar() {
           >
             Zaloguj
           </Typography>
-        </Box>
+        </Box> */}
       </Drawer>
     </>
   );

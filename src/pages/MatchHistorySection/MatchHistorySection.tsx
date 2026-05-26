@@ -10,7 +10,7 @@ type Props = {
 
 export function MatchHistorySection({ matches }: Props) {
   return (
-    <Styled.Section id="matches">
+    <Styled.Section id="match-history">
       <Styled.Background />
 
       <Styled.Content maxWidth="md">
@@ -42,11 +42,11 @@ export function MatchHistorySection({ matches }: Props) {
 
             return (
               <Styled.MatchCard key={match.id}>
-                <Styled.PlayerSide faction={faction1} isWinner={p1Won}>
+                <Styled.PlayerSide faction={faction1} iswinner={p1Won}>
                   <Styled.FactionGlow faction={faction1} />
 
                   <Styled.PlayerContent>
-                    <Styled.FactionEmblem factionKey={match.faction1} />
+                    <Styled.FactionEmblem factionkey={match.faction1} />
 
                     <Styled.PlayerText>
                       <Styled.PlayerName>
@@ -61,11 +61,11 @@ export function MatchHistorySection({ matches }: Props) {
 
                 <Styled.Center>
                   <Styled.Score>
-                    <Styled.ScoreValue isWinner={p1Won}>
+                    <Styled.ScoreValue iswinner={p1Won}>
                       {match.score1}
                     </Styled.ScoreValue>
                     <Styled.ScoreSeparator>:</Styled.ScoreSeparator>
-                    <Styled.ScoreValue isWinner={p2Won}>
+                    <Styled.ScoreValue iswinner={p2Won}>
                       {match.score2}
                     </Styled.ScoreValue>
                   </Styled.Score>
@@ -78,7 +78,7 @@ export function MatchHistorySection({ matches }: Props) {
 
                 <Styled.PlayerSide
                   faction={faction2}
-                  isWinner={p2Won}
+                  iswinner={p2Won}
                   align="right"
                 >
                   <Styled.FactionGlow faction={faction2} />
@@ -93,7 +93,7 @@ export function MatchHistorySection({ matches }: Props) {
                       </Styled.FactionName>
                     </Styled.PlayerText>
 
-                    <Styled.FactionEmblem factionKey={match.faction2} />
+                    <Styled.FactionEmblem factionkey={match.faction2} />
                   </Styled.PlayerContent>
                 </Styled.PlayerSide>
               </Styled.MatchCard>

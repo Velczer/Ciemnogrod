@@ -73,10 +73,10 @@ export const TableFrame = styled(Box)({
 });
 
 export const Corner = styled(Box)<{
-  cornerPosition: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-}>(({ cornerPosition }) => {
-  const isTop = cornerPosition.includes('top');
-  const isLeft = cornerPosition.includes('left');
+  cornerposition: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+}>(({ cornerposition }) => {
+  const isTop = cornerposition.includes('top');
+  const isLeft = cornerposition.includes('left');
 
   return {
     position: 'absolute',
@@ -125,13 +125,13 @@ export const LegendItem = styled(Box)({
   gap: 8,
 });
 
-export const LegendDot = styled(Box)<{ colorValue: string }>(
-  ({ colorValue }) => ({
+export const LegendDot = styled(Box)<{ colorvalue: string }>(
+  ({ colorvalue }) => ({
     width: 10,
     height: 10,
     borderRadius: '1px',
-    background: colorValue,
-    boxShadow: `0 0 6px ${colorValue}`,
+    background: colorvalue,
+    boxShadow: `0 0 6px ${colorvalue}`,
   })
 );
 

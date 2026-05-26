@@ -10,11 +10,11 @@ export function PlayerRow({ player, rank }: { player: Player; rank: number }) {
   const points = getCalculatePoints(player.wins, player.losses);
 
   return (
-    <Styled.Row rank={rank} rankColor={rankIcon?.color} rankStyle={rankStyle}>
+    <Styled.Row rank={rank} rankcolor={rankIcon?.color} rankstyle={rankStyle}>
       <Styled.Cell>
         {rankIcon ? (
-          <Styled.RankIconBox colorValue={rankIcon.color}>
-            <Styled.RankIconText colorValue={rankIcon.color}>
+          <Styled.RankIconBox colorvalue={rankIcon.color}>
+            <Styled.RankIconText colorvalue={rankIcon.color}>
               {rank}
             </Styled.RankIconText>
           </Styled.RankIconBox>
@@ -25,8 +25,8 @@ export function PlayerRow({ player, rank }: { player: Player; rank: number }) {
 
       <Styled.Cell>
         <Styled.ChampionWrapper>
-          <Styled.ChampionDot colorValue={rankIcon?.color} />
-          <Styled.ChampionName isTopRank={rank <= 3}>
+          <Styled.ChampionDot colorvalue={rankIcon?.color} />
+          <Styled.ChampionName istoprank={rank <= 3}>
             {player.nickname}
           </Styled.ChampionName>
         </Styled.ChampionWrapper>
@@ -43,16 +43,16 @@ export function PlayerRow({ player, rank }: { player: Player; rank: number }) {
       <Styled.Cell>
         <Styled.WinRateWrapper>
           <Styled.WinRateTrack>
-            <Styled.WinRateFill winRate={winRateNum} />
+            <Styled.WinRateFill winrate={winRateNum} />
           </Styled.WinRateTrack>
-          <Styled.WinRateText winRate={winRateNum}>
+          <Styled.WinRateText winrate={winRateNum}>
             {winRate}%
           </Styled.WinRateText>
         </Styled.WinRateWrapper>
       </Styled.Cell>
 
       <Styled.Cell>
-        <Styled.PointsText isTopRank={rank <= 3} isFirstRank={rank === 1}>
+        <Styled.PointsText istoprank={rank <= 3} isfirstrank={rank === 1}>
           {points.toLocaleString()}
         </Styled.PointsText>
       </Styled.Cell>

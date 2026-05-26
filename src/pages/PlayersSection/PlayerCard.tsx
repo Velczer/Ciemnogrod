@@ -6,6 +6,7 @@ import * as Styled from './PlayerCard.styled';
 export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
   const faction = factions[player.mainFaction] ?? factions.Temple;
   const winRate = getWinRate(player.wins, player.losses);
+  const winRateNum = parseFloat(winRate);
 
   const stats = [
     { label: 'Wygrane', value: player.wins.toLocaleString(), color: '#27AE60' },
@@ -19,7 +20,7 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
 
   return (
     <Styled.Card faction={faction}>
-      <Styled.FactionBackground factionName={player.mainFaction} />
+      <Styled.FactionBackground factionname={player.mainFaction} />
 
       <Styled.RankBadge className="rank-badge">
         <Styled.RankText className="rank-badge-text">#{rank}</Styled.RankText>
@@ -30,8 +31,8 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
           <Styled.AvatarLetter faction={faction}>
             {player.nickname.charAt(0).toUpperCase()}
           </Styled.AvatarLetter>
-          <Styled.Corner cornerPosition="top-left" faction={faction} />
-          <Styled.Corner cornerPosition="bottom-right" faction={faction} />
+          <Styled.Corner cornerposition="top-left" faction={faction} />
+          <Styled.Corner cornerposition="bottom-right" faction={faction} />
         </Styled.Avatar>
 
         <Styled.PlayerInfo>
@@ -47,7 +48,7 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
       <Styled.StatsGrid>
         {stats.map((stat) => (
           <Styled.StatBox key={stat.label}>
-            <Styled.StatValue colorValue={stat.color}>
+            <Styled.StatValue colorvalue={stat.color}>
               {stat.value}
             </Styled.StatValue>
             <Styled.StatLabel>{stat.label}</Styled.StatLabel>
@@ -57,7 +58,7 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
 
       <Styled.WinRateWrapper>
         <Styled.WinRateTrack>
-          <Styled.WinRateFill winRate={winRate} faction={faction} />
+          <Styled.WinRateFill winrate={winRateNum} faction={faction} />
         </Styled.WinRateTrack>
       </Styled.WinRateWrapper>
     </Styled.Card>

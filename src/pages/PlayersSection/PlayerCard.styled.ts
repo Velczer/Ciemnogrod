@@ -69,9 +69,9 @@ export const Card = styled(Box)<{ faction: FactionTheme }>(({ faction }) => ({
 }));
 
 export const FactionBackground = styled(Box)<{
-  factionName: string | null | undefined;
-}>(({ factionName }) => ({
-  backgroundImage: `url(/OE_${factionName ?? 'Temple'}_screen.webp)`,
+  factionname: string | null | undefined;
+}>(({ factionname }) => ({
+  backgroundImage: `url(/OE_${factionname ?? 'Temple'}_screen.webp)`,
   backgroundSize: 'cover',
   position: 'absolute',
   top: 0,
@@ -139,14 +139,14 @@ export const AvatarLetter = styled(Typography)<{ faction: FactionTheme }>(
 );
 
 export const Corner = styled(Box)<{
-  cornerPosition: 'top-left' | 'bottom-right';
+  cornerposition: 'top-left' | 'bottom-right';
   faction: FactionTheme;
-}>(({ cornerPosition, faction }) => ({
+}>(({ cornerposition, faction }) => ({
   position: 'absolute',
   width: 8,
   height: 8,
 
-  ...(cornerPosition === 'top-left'
+  ...(cornerposition === 'top-left'
     ? {
         top: 3,
         left: 3,
@@ -210,13 +210,13 @@ export const StatBox = styled(Box)({
   textAlign: 'center',
 });
 
-export const StatValue = styled(Typography)<{ colorValue: string }>(
-  ({ colorValue }) => ({
+export const StatValue = styled(Typography)<{ colorvalue: string }>(
+  ({ colorvalue }) => ({
     fontFamily: '"Cinzel Decorative", serif',
     fontSize: '0.95rem',
     fontWeight: 700,
-    color: colorValue,
-    filter: `drop-shadow(0 0 4px ${colorValue}80)`,
+    color: colorvalue,
+    filter: `drop-shadow(0 0 4px ${colorvalue}80)`,
     lineHeight: 1,
   })
 );
@@ -242,11 +242,11 @@ export const WinRateTrack = styled(Box)({
 });
 
 export const WinRateFill = styled(Box)<{
-  winRate: number;
+  winrate: number;
   faction: FactionTheme;
-}>(({ winRate, faction }) => ({
+}>(({ winrate, faction }) => ({
   height: '100%',
-  width: `${winRate}%`,
+  width: `${winrate}%`,
   background: `linear-gradient(90deg, #C9A84C, ${faction.primary})`,
   borderRadius: '2px',
   boxShadow: `0 0 6px ${faction.primary}`,

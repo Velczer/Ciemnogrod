@@ -38,10 +38,10 @@ export function RankingSection({ players }: { players: Player[] }) {
         </Styled.Header>
 
         <Styled.TableFrame>
-          <Styled.Corner cornerPosition="top-left" />
-          <Styled.Corner cornerPosition="top-right" />
-          <Styled.Corner cornerPosition="bottom-left" />
-          <Styled.Corner cornerPosition="bottom-right" />
+          <Styled.Corner cornerposition="top-left" />
+          <Styled.Corner cornerposition="top-right" />
+          <Styled.Corner cornerposition="bottom-left" />
+          <Styled.Corner cornerposition="bottom-right" />
 
           <TableContainer>
             <Table>
@@ -65,7 +65,7 @@ export function RankingSection({ players }: { players: Player[] }) {
         <Styled.Legend>
           {Object.entries(Styled.rankIcons).map(([rank, data]) => (
             <Styled.LegendItem key={rank}>
-              <Styled.LegendDot colorValue={data.color} />
+              <Styled.LegendDot colorvalue={data.color} />
               <Styled.LegendText>
                 Rank {rank} — {data.label}
               </Styled.LegendText>

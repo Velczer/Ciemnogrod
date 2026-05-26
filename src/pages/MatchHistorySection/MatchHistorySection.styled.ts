@@ -95,15 +95,15 @@ export const MatchCard = styled(Box)({
 
 export const PlayerSide = styled(Box)<{
   faction: FactionTheme;
-  isWinner: boolean;
+  iswinner: boolean;
   align?: 'left' | 'right';
-}>(({ faction, isWinner, align = 'left' }) => ({
+}>(({ faction, iswinner, align = 'left' }) => ({
   position: 'relative',
   minWidth: 0,
   textAlign: align,
   padding: '10px 12px',
-  border: `1px solid ${isWinner ? faction.primary + '55' : 'rgba(201,168,76,0.08)'}`,
-  background: isWinner
+  border: `1px solid ${iswinner ? faction.primary + '55' : 'rgba(201,168,76,0.08)'}`,
+  background: iswinner
     ? `linear-gradient(135deg, ${faction.primary}18, rgba(0,0,0,0.12))`
     : 'rgba(0,0,0,0.16)',
   borderRadius: 3,
@@ -155,13 +155,13 @@ export const Score = styled(Box)({
   gap: 8,
 });
 
-export const ScoreValue = styled(Typography)<{ isWinner: boolean }>(
-  ({ isWinner }) => ({
+export const ScoreValue = styled(Typography)<{ iswinner: boolean }>(
+  ({ iswinner }) => ({
     fontFamily: '"Cinzel Decorative", serif',
     fontSize: '2rem',
     fontWeight: 900,
-    color: isWinner ? '#C9A84C' : '#6B5E4E',
-    filter: isWinner ? 'drop-shadow(0 0 8px rgba(201,168,76,0.55))' : 'none',
+    color: iswinner ? '#C9A84C' : '#6B5E4E',
+    filter: iswinner ? 'drop-shadow(0 0 8px rgba(201,168,76,0.55))' : 'none',
     lineHeight: 1,
   })
 );
@@ -189,17 +189,17 @@ export const DateText = styled(Typography)({
   color: '#6B5E4E',
 });
 
-export const FactionEmblem = styled(Box)<{ factionKey: string }>(
-  ({ factionKey }) => ({
+export const FactionEmblem = styled(Box)<{ factionkey: string }>(
+  ({ factionkey }) => ({
     position: 'relative',
-    width: 42,
-    height: 42,
+    width: 64,
+    height: 64,
     flexShrink: 0,
     backgroundImage: 'url(/OldenEra_Factions.webp)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: '300% 200%',
     backgroundPosition:
-      factionSpritePositions[factionKey] ?? factionSpritePositions.Temple,
+      factionSpritePositions[factionkey] ?? factionSpritePositions.Temple,
     filter: 'drop-shadow(0 0 10px rgba(201,168,76,0.35))',
     opacity: 0.9,
   })

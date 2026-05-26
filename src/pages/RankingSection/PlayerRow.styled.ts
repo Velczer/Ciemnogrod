@@ -54,13 +54,13 @@ const getWinRateGradient = (winRate: number) => {
 
 export const Row = styled(TableRow)<{
   rank: number;
-  rankColor?: string;
-  rankStyle: RankStyle;
-}>(({ rank, rankColor, rankStyle }) => ({
-  background: rankStyle.bg,
+  rankcolor?: string;
+  rankstyle: RankStyle;
+}>(({ rank, rankcolor, rankstyle }) => ({
+  background: rankstyle.bg,
   borderLeft:
-    rank <= 3 && rankColor
-      ? `3px solid ${rankColor}40`
+    rank <= 3 && rankcolor
+      ? `3px solid ${rankcolor}40`
       : '3px solid transparent',
   transition: 'all 0.3s ease',
   cursor: 'default',
@@ -74,7 +74,7 @@ export const Row = styled(TableRow)<{
   },
 
   '& td': {
-    borderBottom: `1px solid ${rankStyle.border}`,
+    borderBottom: `1px solid ${rankstyle.border}`,
     paddingTop: 16,
     paddingBottom: 16,
     transition: 'color 0.3s ease',
@@ -83,12 +83,12 @@ export const Row = styled(TableRow)<{
 
 export const Cell = styled(TableCell)({});
 
-export const RankIconBox = styled(Box)<{ colorValue: string }>(
-  ({ colorValue }) => ({
+export const RankIconBox = styled(Box)<{ colorvalue: string }>(
+  ({ colorvalue }) => ({
     width: 28,
     height: 28,
-    background: `${colorValue}15`,
-    border: `1px solid ${colorValue}40`,
+    background: `${colorvalue}15`,
+    border: `1px solid ${colorvalue}40`,
     borderRadius: '2px',
     display: 'flex',
     alignItems: 'center',
@@ -96,13 +96,13 @@ export const RankIconBox = styled(Box)<{ colorValue: string }>(
   })
 );
 
-export const RankIconText = styled(Typography)<{ colorValue: string }>(
-  ({ colorValue }) => ({
+export const RankIconText = styled(Typography)<{ colorvalue: string }>(
+  ({ colorvalue }) => ({
     fontFamily: '"Cinzel", serif',
     fontSize: '0.75rem',
     fontWeight: 700,
-    color: colorValue,
-    filter: `drop-shadow(0 0 4px ${colorValue})`,
+    color: colorvalue,
+    filter: `drop-shadow(0 0 4px ${colorvalue})`,
   })
 );
 
@@ -120,22 +120,22 @@ export const ChampionWrapper = styled(Box)({
   gap: 12,
 });
 
-export const ChampionDot = styled(Box)<{ colorValue?: string }>(
-  ({ colorValue }) => ({
+export const ChampionDot = styled(Box)<{ colorvalue?: string }>(
+  ({ colorvalue }) => ({
     width: 8,
     height: 8,
     borderRadius: '1px',
-    background: colorValue ?? 'rgba(201,168,76,0.3)',
-    boxShadow: colorValue ? `0 0 6px ${colorValue}` : 'none',
+    background: colorvalue ?? 'rgba(201,168,76,0.3)',
+    boxShadow: colorvalue ? `0 0 6px ${colorvalue}` : 'none',
   })
 );
 
-export const ChampionName = styled(Typography)<{ isTopRank: boolean }>(
-  ({ isTopRank }) => ({
+export const ChampionName = styled(Typography)<{ istoprank: boolean }>(
+  ({ istoprank }) => ({
     fontFamily: '"Cinzel", serif',
     fontSize: '0.9rem',
-    color: isTopRank ? '#E8DCC8' : '#B8A890',
-    fontWeight: isTopRank ? 600 : 400,
+    color: istoprank ? '#E8DCC8' : '#B8A890',
+    fontWeight: istoprank ? 600 : 400,
   })
 );
 
@@ -168,29 +168,29 @@ export const WinRateTrack = styled(Box)({
   overflow: 'hidden',
 });
 
-export const WinRateFill = styled(Box)<{ winRate: number }>(({ winRate }) => ({
+export const WinRateFill = styled(Box)<{ winrate: number }>(({ winrate }) => ({
   height: '100%',
-  width: `${winRate}%`,
-  background: getWinRateGradient(winRate),
+  width: `${winrate}%`,
+  background: getWinRateGradient(winrate),
   borderRadius: '2px',
 }));
 
-export const WinRateText = styled(Typography)<{ winRate: number }>(
-  ({ winRate }) => ({
+export const WinRateText = styled(Typography)<{ winrate: number }>(
+  ({ winrate }) => ({
     fontFamily: '"Cinzel", serif',
     fontSize: '0.8rem',
-    color: getWinRateColor(winRate),
+    color: getWinRateColor(winrate),
     minWidth: 45,
   })
 );
 
 export const PointsText = styled(Typography)<{
-  isTopRank: boolean;
-  isFirstRank: boolean;
-}>(({ isTopRank, isFirstRank }) => ({
+  istoprank: boolean;
+  isfirstrank: boolean;
+}>(({ istoprank, isfirstrank }) => ({
   fontFamily: '"Cinzel Decorative", serif',
   fontSize: '0.9rem',
   color: '#C9A84C',
-  filter: isFirstRank ? 'drop-shadow(0 0 6px rgba(201,168,76,0.6))' : 'none',
-  fontWeight: isTopRank ? 700 : 400,
+  filter: isfirstrank ? 'drop-shadow(0 0 6px rgba(201,168,76,0.6))' : 'none',
+  fontWeight: istoprank ? 700 : 400,
 }));

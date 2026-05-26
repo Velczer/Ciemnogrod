@@ -5,7 +5,7 @@ import { Navbar } from '@components/Navbar';
 import { HeroSection } from '../homepage/HeroSection';
 import { PlayersSection } from '@pages/PlayersSection';
 import { RankingSection } from '@pages/RankingSection';
-import { BracketSection } from '../homepage/BracketSection';
+import { BracketSection } from '@pages/BracketSection';
 import { Footer } from '@components/Footer';
 import { getCalculatePoints } from '@helpers/calculate';
 import { Stat } from '@/types/stats';
