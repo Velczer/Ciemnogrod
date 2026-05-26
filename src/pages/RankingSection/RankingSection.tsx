@@ -66,9 +66,7 @@ export function RankingSection({ players }: { players: Player[] }) {
           {Object.entries(Styled.rankIcons).map(([rank, data]) => (
             <Styled.LegendItem key={rank}>
               <Styled.LegendDot colorvalue={data.color} />
-              <Styled.LegendText>
-                Rank {rank} — {data.label}
-              </Styled.LegendText>
+              <Styled.LegendText>{data.label}</Styled.LegendText>
             </Styled.LegendItem>
           ))}
         </Styled.Legend>

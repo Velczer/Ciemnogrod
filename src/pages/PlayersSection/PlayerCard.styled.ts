@@ -251,3 +251,22 @@ export const WinRateFill = styled(Box)<{
   borderRadius: '2px',
   boxShadow: `0 0 6px ${faction.primary}`,
 }));
+
+export const TrophyBox = styled(Box)({
+  position: 'absolute',
+  top: 58,
+  right: 12,
+  borderRadius: '3px',
+  padding: 6,
+  background:
+    'linear-gradient(90deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03))',
+  border: '1px solid rgba(201,168,76,0.16)',
+  textAlign: 'center',
+});
+
+export const TrophyIcons = styled(Typography)({
+  fontSize: '1.05rem',
+  letterSpacing: '0.12em',
+  lineHeight: 1.2,
+  filter: 'drop-shadow(0 0 6px rgba(201,168,76,0.5))',
+});

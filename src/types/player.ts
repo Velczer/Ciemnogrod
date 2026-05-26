@@ -4,5 +4,6 @@ export type Player = {
   nickname: string;
   wins: number;
   losses: number;
+  tournamentWins: number;
   mainFaction: string;
 };

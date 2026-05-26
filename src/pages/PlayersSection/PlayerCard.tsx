@@ -7,6 +7,7 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
   const faction = factions[player.mainFaction] ?? factions.Temple;
   const winRate = getWinRate(player.wins, player.losses);
   const winRateNum = parseFloat(winRate);
+  const trophyCount = player.tournamentWins ?? 0;
 
   const stats = [
     { label: 'Wygrane', value: player.wins.toLocaleString(), color: '#27AE60' },
@@ -41,6 +42,12 @@ export function PlayerCard({ player, rank }: { player: Player; rank: number }) {
             {faction.label}
           </Styled.FactionName>
         </Styled.PlayerInfo>
+
+        {trophyCount > 0 && (
+          <Styled.TrophyBox>
+            <Styled.TrophyIcons>{'🏆'.repeat(trophyCount)}</Styled.TrophyIcons>
+          </Styled.TrophyBox>
+        )}
       </Styled.Header>
 
       <Styled.Divider faction={faction} />
